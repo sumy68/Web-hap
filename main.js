@@ -62,3 +62,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealEls.forEach((el) => io.observe(el));
 });
+
+// Reveal on scroll (für .reveal)
+(() => {
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  els.forEach((el) => io.observe(el));
+})();
+
+// Counter animation for .stat__num
+(() => {
+  const nums = document.querySelectorAll(".stat__num[data-count]");
+  if (!nums.length) return;
+
+  const animate = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const start = 0;
+    const dur = 900;
+    const t0 = performance.now();
+
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const val = Math.floor(start + (target - start) * p);
+      el.textContent = val;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        animate(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  nums.forEach((n) => io.observe(n));
+})();
+
