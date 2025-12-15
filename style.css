@@ -849,4 +849,92 @@ a:hover{opacity:.8}
   .role-list span{
     display: block;
   }
+  .btn-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
   
+  .btn-row.center{
+    justify-content:center;
+  }
+
+  @media (max-width:600px){
+    .btn-row{
+      justify-content:center;
+    }
+  }
+  .newsletter__form{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+  
+  .newsletter__input{
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #e8e8ee;
+  }
+  
+  /* Kontakt Section */
+.contact{
+  max-width:980px;
+  margin:0 auto;
+  border-left:6px solid var(--accent);
+  text-align:center;
+}
+
+/* Intro Text */
+.contact__intro{
+  margin-top:8px;
+  margin-bottom:24px;
+  font-size:1.1rem; /* größer */
+  opacity:.9;
+}
+
+/* Formular */
+.contact__form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  align-items:center;
+}
+
+/* Inputs & Textarea */
+.contact__form input,
+.contact__form textarea{
+  width:100%;
+  max-width:480px;
+  padding:14px 16px;
+  font-size:1.05rem; /* deutlich größer */
+  border-radius:14px;
+  border:1px solid var(--line);
+  font-family:inherit;
+}
+
+/* Placeholder */
+.contact__form input::placeholder,
+.contact__form textarea::placeholder{
+  font-size:1rem;
+}
+
+/* Button Abstand */
+.contact__form .btn{
+  margin-top:8px;
+}
+
+/* Mobile Boost */
+@media (max-width:600px){
+  .contact__intro{
+    font-size:1.15rem;
+  }
+
+  .contact__form input,
+  .contact__form textarea{
+    font-size:1.1rem;
+  }
+}

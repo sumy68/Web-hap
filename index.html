@@ -147,7 +147,7 @@
         manchmal ist es wirklich nur ein <strong style="color:#6b4eff;">Kaffee im Monat</strong>. ☕💜
       </p>
 
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+      <div class="btn-row center">
         <a class="btn btn--primary" href="mitgliedschaft.html">🤍 Mitglied werden</a>
         <a class="btn btn--ghost" href="#newsletter">📩 Newsletter</a>
       </div>
@@ -196,14 +196,48 @@
       <div class="pillar reveal" style="--d:120ms; border-top: 5px solid #6b4eff;">
         <h3>💜 Spenden</h3>
         <p>Einmalig oder regelmäßig – jeder Betrag unterstützt direkt unsere Arbeit.</p>
-        <a class="help-link" href="#kontakt">Spenden anfragen →</a>
+        <a class="help-link" href="Spendenaktionen.html">Hier spenden →</a>
       </div>
 
       <div class="pillar reveal" style="--d:240ms; border-top: 5px solid #6b4eff;">
         <h3>🙌 Ehrenamt</h3>
         <p>Du möchtest mit anpacken? Mega! Wir freuen uns über jede helfende Hand.</p>
-        <a class="help-link" href="#kontakt">Mitmachen →</a>
+        <a class="help-link" href="#kontakt">Schreib uns →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8) Newsletter -->
+<section class="section reveal" id="newsletter">
+  <div class="container">
+    <div class="pillar" style="max-width:980px; margin:0 auto; border-left:6px solid #6b4eff; text-align:center;">
+      <h2 style="margin-top:0;">📩 Newsletter</h2>
+
+      <p style="margin-top:6px; opacity:.9;">
+        Updates, Projekte und Aktionen – 
+        <strong style="color:#6b4eff;">max. 1 Mail im Monat</strong>. Kein Spam. 💜
+      </p>
+
+      <form
+        class="newsletter__form"
+        style="display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:16px;"
+        action="mailto:kurtoglukeskin@happiness-ev.com"
+        method="post"
+        enctype="text/plain"
+      >
+        <input
+          class="newsletter__input"
+          type="email"
+          name="email"
+          required
+          placeholder="Deine E-Mail"
+        />
+        <button class="btn btn--primary" type="submit">
+          Anmelden
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -232,24 +266,53 @@
   </div>
 </section>
 
-<!-- 8) Newsletter -->
-<section class="section reveal" id="newsletter">
+
+
+<section class="section reveal" id="kontakt">
   <div class="container">
-    <div class="pillar" style="max-width: 980px; margin: 0 auto; border-left: 6px solid #6b4eff;">
-      <h2 style="margin-top:0;">📩 Newsletter</h2>
-      <p style="margin-top:6px; opacity:.9;">
-        Updates, Projekte und Aktionen – <strong style="color:#6b4eff;">max. 1 Mail im Monat</strong>. Kein Spam. 💜
+    <div class="pillar contact">
+      
+      <h2>📬 Kontakt</h2>
+
+      <p class="contact__intro">
+        Schreib uns gerne – wir melden uns zeitnah bei dir zurück 💜
       </p>
 
-      <form class="newsletter__form" action="mailto:kurtoglukeskin@happiness-ev.com" method="post" enctype="text/plain">
-        <input class="newsletter__input" type="email" name="email" required placeholder="Deine E-Mail" />
-        <button class="btn btn--primary" type="submit">Anmelden</button>
+      <form
+        class="contact__form"
+        action="https://formspree.io/f/movgzloj"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Dein Name"
+        />
+
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Deine E-Mail"
+        />
+
+        <textarea
+          name="message"
+          required
+          placeholder="Deine Nachricht"
+          rows="5"
+        ></textarea>
+
+        <button class="btn btn--primary" type="submit">
+          ✉️ Nachricht senden
+        </button>
       </form>
+
     </div>
   </div>
 </section>
 
-    
 
   </main>
 
