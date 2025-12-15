@@ -37,4 +37,28 @@ async function loadPartial(selector, url) {
     drop.classList.toggle("is-open");
   });
   
-  
+
+  // Fade-in on scroll + Stagger (immer 1-2-3-4)
+document.addEventListener("DOMContentLoaded", () => {
+  // Delays upfront setzen (damit auch first/last sicher stimmen)
+  document.querySelectorAll(".pillars__grid").forEach((grid) => {
+    grid.querySelectorAll(".pillar.reveal").forEach((el, i) => {
+      el.style.setProperty("--delay", `${i * 220}ms`);
+    });
+  });
+
+  const revealEls = document.querySelectorAll(".reveal");
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+  );
+
+  revealEls.forEach((el) => io.observe(el));
+});

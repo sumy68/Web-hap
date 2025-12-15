@@ -336,3 +336,82 @@
     display: block;
   }
   
+
+  .pillars{
+    background:#fafafb;
+  }
+  
+  .pillars__title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:32px;
+  }
+  
+  .pillars__grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  
+  .pillar{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 22px;
+    text-align:center;
+  }
+  
+  .pillar__icon{
+    font-size:36px;
+    margin-bottom:14px;
+  }
+  
+  .pillar h3{
+    margin:0 0 10px;
+    font-size:18px;
+  }
+  
+  .pillar p{
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px){
+    .pillars__grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+  }
+  @media (max-width: 520px){
+    .pillars__grid{
+      grid-template-columns:1fr;
+    }
+  }
+/* Fade-in on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 900ms ease, transform 900ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* optional: reduced motion respektieren */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    transform: none;
+  }
+}
+/* Stagger support */
+.pillars__grid .pillar.reveal {
+  transition-delay: var(--delay, 0ms);
+}
+  
