@@ -846,4 +846,7 @@ a:hover{opacity:.8}
     .about-point{ grid-template-columns: 42px 1fr; }
     .about-point__icon{ width:42px; height:42px; }
   }
+  .role-list span{
+    display: block;
+  }
   
