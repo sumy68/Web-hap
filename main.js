@@ -28,4 +28,13 @@ async function loadPartial(selector, url) {
     initNav();
     setYear();
   })();
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".nav__link--btn");
+    if (!btn) return;
+  
+    const drop = btn.closest(".nav__dropdown");
+    drop.classList.toggle("is-open");
+  });
+  
   
