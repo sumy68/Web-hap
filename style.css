@@ -1896,3 +1896,50 @@ a:hover{opacity:.8}
     }
   }
   
+
+  /* =========================
+   MITGLIED WERDEN – CENTER FIX
+   ========================= */
+
+/* Hauptbereich wirklich mittig */
+main.section{
+  text-align: center;
+}
+
+/* Alle Textblöcke innerhalb der Page (p, h1, h2, h3) */
+main.section h1,
+main.section h2,
+main.section h3,
+main.section p{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Alles was mit max-width kommt -> automatisch mittig */
+main.section [style*="max-width"]{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Grid Karten bleiben hübsch zentriert */
+main.section .pillars__grid{
+  justify-content: center;
+}
+
+/* Formular zentrieren + Inputs nice */
+main.section form{
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+main.section form label{
+  display: block;
+  text-align: left; /* labels links sieht cleaner aus */
+}
+main.section form input,
+main.section form select{
+  text-align: left;
+}
+main.section form button{
+  justify-self: center;
+}
