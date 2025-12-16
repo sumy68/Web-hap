@@ -1402,3 +1402,22 @@ a:hover{opacity:.8}
   margin: 0 auto;
   border-radius: 18px;
 }
+
+.spenden-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.spenden-media img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .spenden-split {
+    grid-template-columns: 1fr;
+  }
+}
