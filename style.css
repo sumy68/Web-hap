@@ -601,6 +601,12 @@ a:hover{opacity:.8}
 .about-section h2{
   margin: 0 0 12px 0;
 }
+/* TEAM – Überschrift & Text zentrieren */
+.about-section h2,
+.about-section > p {
+  text-align: center;
+}
+
 
 .about-section p{
   max-width: none; /* full width like you asked */
@@ -1275,5 +1281,64 @@ a:hover{opacity:.8}
     color:rgba(11,11,15,.75);
     border-bottom:1px solid var(--line);
   }
-
 }
+/* TEAM – alles mittig */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-name {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: #6b4eff;
+}
+
+.team-card figcaption {
+  margin-top: 0.8rem;
+}
+
+.team-card .role-list span,
+.team-card figcaption span {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Abstand über dem Team-Grid */
+.team-grid {
+  margin-top: 4rem; /* wenn zu viel: 2rem */
+}
+
+/* Team Name Badge */
+.team-name {
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  border-radius: 12px;
+}
+
+/* Farbvarianten */
+.accent-purple { background: var(--c-purple); }
+.accent-red    { background: var(--c-red); }
+.accent-turq   { background: var(--c-turq); }
+.accent-green  { background: var(--c-green); }
+
+
+.role-main {
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+}
+
+.team-card figcaption .role-main {
+  font-weight: 800;
+  color: #000 !important;
+}
+
