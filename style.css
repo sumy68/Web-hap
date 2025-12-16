@@ -1979,3 +1979,47 @@ main.section form button{
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 14px 32px rgba(0,0,0,.12);
 }
+
+.footer-instagram{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-instagram svg{
+  width: 22px;
+  height: 22px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.footer-instagram:hover{
+  opacity: .85;
+}
+
+.btn-call{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.btn-call:hover{
+  transform: translateY(-1px);
+  opacity: .95;
+}
