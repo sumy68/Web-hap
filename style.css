@@ -1394,3 +1394,11 @@ a:hover{opacity:.8}
   z-index: 2;
   padding: 0 1rem;
 }
+
+.cay-poster {
+  display: block;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 18px;
+}
