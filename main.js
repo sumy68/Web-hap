@@ -1,46 +1,92 @@
+/* =========================
+   Partials laden
+========================= */
 async function loadPartial(selector, url) {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    const res = await fetch(url);
-    el.innerHTML = await res.text();
-  }
-  
-  function initNav() {
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".nav");
-    if (!toggle || !nav) return;
-  
-    toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-  }
-  
-  function setYear() {
-    const y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  }
-  
-  (async function () {
-    await loadPartial("#site-header", "partials/header.html");
-    await loadPartial("#site-footer", "partials/footer.html");
-  
-    initNav();
-    setYear();
-  })();
+  const el = document.querySelector(selector);
+  if (!el) return;
+  const res = await fetch(url);
+  el.innerHTML = await res.text();
+}
 
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".nav__link--btn");
-    if (!btn) return;
-  
-    const drop = btn.closest(".nav__dropdown");
-    drop.classList.toggle("is-open");
+/* =========================
+   Burger Navigation
+========================= */
+function initNav() {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
   });
-  
+}
 
-  // Fade-in on scroll + Stagger (immer 1-2-3-4)
+/* =========================
+   Footer Jahr
+========================= */
+function setYear() {
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+/* =========================
+   Init nach Partials
+========================= */
+(async function () {
+  await loadPartial("#site-header", "partials/header.html");
+  await loadPartial("#site-footer", "partials/footer.html");
+
+  initNav();
+  setYear();
+})();
+
+/* =========================
+   DROPDOWNS (Mobile + Desktop clean)
+========================= */
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".nav__link--btn");
+  const dropdown = e.target.closest(".nav__dropdown");
+
+  // Klick auf Dropdown-Button
+  if (btn) {
+    e.preventDefault();
+
+    const wrap = btn.closest(".nav__dropdown");
+    if (!wrap) return;
+
+    // andere Dropdowns schließen
+    document.querySelectorAll(".nav__dropdown.is-open").forEach((d) => {
+      if (d !== wrap) d.classList.remove("is-open");
+    });
+
+    // aktuelles togglen
+    wrap.classList.toggle("is-open");
+    return;
+  }
+
+  // Klick außerhalb → alles schließen
+  if (!dropdown) {
+    document.querySelectorAll(".nav__dropdown.is-open").forEach((d) =>
+      d.classList.remove("is-open")
+    );
+  }
+});
+
+// ESC → Dropdowns schließen
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".nav__dropdown.is-open").forEach((d) =>
+      d.classList.remove("is-open")
+    );
+  }
+});
+
+/* =========================
+   Fade-In on Scroll + Stagger
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
-  // Delays upfront setzen (damit auch first/last sicher stimmen)
+  // Stagger für Pillars
   document.querySelectorAll(".pillars__grid").forEach((grid) => {
     grid.querySelectorAll(".pillar.reveal").forEach((el, i) => {
       el.style.setProperty("--delay", `${i * 220}ms`);
@@ -63,41 +109,21 @@ document.addEventListener("DOMContentLoaded", () => {
   revealEls.forEach((el) => io.observe(el));
 });
 
-// Reveal on scroll (für .reveal)
-(() => {
-  const els = document.querySelectorAll(".reveal");
-  if (!els.length) return;
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  els.forEach((el) => io.observe(el));
-})();
-
-// Counter animation for .stat__num
+/* =========================
+   Counter Animation
+========================= */
 (() => {
   const nums = document.querySelectorAll(".stat__num[data-count]");
   if (!nums.length) return;
 
   const animate = (el) => {
     const target = parseInt(el.dataset.count, 10);
-    const start = 0;
     const dur = 900;
     const t0 = performance.now();
 
     const tick = (t) => {
       const p = Math.min(1, (t - t0) / dur);
-      const val = Math.floor(start + (target - start) * p);
-      el.textContent = val;
+      el.textContent = Math.floor(target * p);
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -114,4 +140,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   nums.forEach((n) => io.observe(n));
 })();
-
