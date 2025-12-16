@@ -1421,3 +1421,403 @@ a:hover{opacity:.8}
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Karriere Page – nutzt eure CSS Variablen (Accent = Lila) */
+
+.karriere .container{
+  width:min(var(--container,1200px), 92vw);
+  margin:0 auto;
+}
+
+.karriere-hero{
+  padding: clamp(42px, 6vw, 84px) 0;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(107,78,255,.12), transparent 55%),
+    radial-gradient(800px 500px at 80% 0%, rgba(107,78,255,.10), transparent 50%),
+    #fff;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px 0;
+}
+
+.karriere-hero h1{
+  margin: 0 0 12px 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+}
+
+.lead{
+  margin: 0;
+  font-size: clamp(16px, 2.2vw, 18px);
+  color: #202027;
+  max-width: 60ch;
+}
+
+.lead.small{ font-size: 16px; }
+
+.hero-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hero-badges{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.badge{
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(10,10,25,.06);
+}
+
+.karriere-nav{
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-card{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  background:#fff;
+  box-shadow: 0 14px 40px rgba(10,10,25,.06);
+}
+
+.nav-title{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.pill:hover{
+  transform: translateY(-1px);
+  border-color: rgba(107,78,255,.35);
+}
+
+.karriere-section{
+  padding: clamp(36px, 4.5vw, 64px) 0;
+}
+
+.karriere-section.alt{
+  background: #fafafe;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.karriere-section h2{
+  margin: 0 0 10px 0;
+  font-size: clamp(22px, 3vw, 28px);
+}
+
+.muted{ color: var(--muted); }
+.tiny{ font-size: 12px; }
+
+.job-grid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.job-card{
+  grid-column: span 6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  background:#fff;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 16px 45px rgba(10,10,25,.06);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.job-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(107,78,255,.35);
+}
+
+.job-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.job-card h3{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.tag{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(107,78,255,.25);
+  background: rgba(107,78,255,.08);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.job-card p{
+  margin: 10px 0 0 0;
+  color: var(--muted);
+}
+
+.job-link{
+  display:inline-block;
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.job-detail{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:#fff;
+  padding: 16px;
+  box-shadow: 0 16px 45px rgba(10,10,25,.06);
+}
+
+.job-detail-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.job-detail-cta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.job-detail-body{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.card{
+  grid-column: span 6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  background:#fff;
+}
+
+.card h3{ margin: 0 0 10px 0; }
+
+.checklist, .steps{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+.checklist li, .steps li{
+  margin: 8px 0;
+}
+
+.contact-box{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fbfbff;
+}
+.contact-box > div{ grid-column: span 6; }
+
+.contact-label{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.contact-link{
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+.contact-value{
+  font-weight: 700;
+  color: var(--text);
+}
+
+.apply-box{
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:#fff;
+  padding: 16px;
+  box-shadow: 0 16px 45px rgba(10,10,25,.06);
+}
+
+.apply-actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.job-anchors{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.anchor-card{
+  grid-column: span 6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  background:#fff;
+  box-shadow: 0 16px 45px rgba(10,10,25,.06);
+}
+
+.faq details{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(10,10,25,.05);
+  margin: 10px 0;
+}
+
+.faq summary{
+  cursor: pointer;
+  font-weight: 800;
+}
+.faq p{
+  margin: 10px 0 0 0;
+  color: var(--muted);
+}
+
+/* Buttons – falls du schon Buttons in style.css hast: dann diese hier rauslassen */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(107,78,255,.35);
+}
+.btn-primary{
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+.btn-ghost{
+  background:#fff;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .job-card{ grid-column: span 12; }
+  .card{ grid-column: span 12; }
+  .anchor-card{ grid-column: span 12; }
+  .contact-box > div{ grid-column: span 12; }
+}
+
+.job-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+/* Mehr Abstand zwischen Karriere-Sections */
+.karriere-hero,
+.karriere-nav,
+.karriere-section{
+  margin-bottom: clamp(48px, 6vw, 96px);
+}
+/* Pädagogische Stellen – mehr Luft für Text */
+#paedagogische-stellen{
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(72px, 9vw, 140px);
+}
+
+#paedagogische-stellen .lead{
+  max-width: 70ch;
+}
+
+/* Pädagogische Stellen: mehr Luft oben/unten */
+#paedagogische-stellen{
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(80px, 10vw, 150px);
+}
+
+/* Abstand: Text -> Cards */
+#paedagogische-stellen .lead{
+  margin-bottom: 22px;
+  max-width: 75ch;
+}
+
+/* WICHTIG: info-grid wirklich als Grid, damit 2 Spalten klappt */
+.info-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* Cards im info-grid nebeneinander */
+.info-grid .card{
+  grid-column: span 6;
+}
+
+/* Apply-Box etwas Abstand */
+#paedagogische-stellen .apply-box{
+  margin-top: 18px;
+}
+
+/* Mobile: alles untereinander */
+@media (max-width: 900px){
+  .info-grid .card{ grid-column: span 12; }
+}
