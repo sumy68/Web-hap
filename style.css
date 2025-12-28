@@ -2023,3 +2023,39 @@ main.section form button{
   transform: translateY(-1px);
   opacity: .95;
 }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Karten allgemein */
+.team-card {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+/* Wenn nur 2 Karten in der letzten Reihe → zentrieren */
+.team-grid > .team-card:nth-last-child(2):nth-child(3n + 1) {
+  grid-column: 2 / 3;
+}
+
+.team-grid > .team-card:last-child:nth-child(3n + 2) {
+  grid-column: 3 / 4;
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
